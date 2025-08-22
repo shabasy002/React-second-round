@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from "react";
-import useFetch from "../CustomHooks/Usefetch";
-import useDebounce from "../CustomHooks/Usedebounce";
-import "../Css/ProductList.css";
+import useFetch from "../customhooks/useFetch";
+import useDebounce from "../customhooks/useDebounce";
+import "../css/ProductList.css";
 
 type Product = {
   id: number;
@@ -37,30 +37,30 @@ export default function ProductList() {
   return (
     <div>
       <div className="search-box">
-  <input
-    type="text"
-    placeholder="Search products..."
-    value={search}
-    onChange={(e) => setSearch(e.target.value)}
-    className="search-input"
-  />
-</div>
+        <input
+          type="text"
+          placeholder="Search products..."
+          value={search}
+          onChange={(e) => setSearch(e.target.value)}
+          className="search-input"
+        />
+      </div>
 
       {loading && <p className="status-message">Loading...</p>}
       {error && <p className="status-message error">Error: {error.message}</p>}
-<div className="product-wrapper">
-    <div className="product-container">
-        {data?.products.map((p) => (
-          <div key={p.id} className="product-card">
-            <img src={p.thumbnail} alt={p.title}  loading="lazy" className="product-image" />
-            <h3 className="product-title">{p.title}</h3>
-            <p className="product-price">${p.price}</p>
-            <p className="product-rating">⭐ {p.rating}</p>
-          </div>
-        ))}
+      <div className="product-wrapper">
+        <div className="product-container">
+          {data?.products.map((p) => (
+            <div key={p.id} className="product-card">
+              <img src={p.thumbnail} alt={p.title} loading="lazy" className="product-image" />
+              <h3 className="product-title">{p.title}</h3>
+              <p className="product-price">${p.price}</p>
+              <p className="product-rating">⭐ {p.rating}</p>
+            </div>
+          ))}
+        </div>
       </div>
-</div>
-      
+
     </div>
   );
 }

@@ -18,8 +18,8 @@ vi.mock("../CustomHooks/Usedebounce", () => ({
 
 // Import after mocks
 import ProductList from "./ProductList";
-import useFetch from "../CustomHooks/Usefetch";
-import useDebounce from "../CustomHooks/Usedebounce";
+import useFetch from "../customhooks/useFetch";
+import useDebounce from "../customhooks/useDebounce";
 
 beforeEach(() => {
   (useFetch as any).mockReset?.();
